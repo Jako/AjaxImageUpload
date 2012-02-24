@@ -57,7 +57,7 @@ switch ($mode) {
 				$result = array();
 				$formUid = (isset($_GET['uid'])) ? htmlentities(trim($_GET['uid']), ENT_NOQUOTES) : $formUid;
 				if (strtolower($_GET['delete']) == 'all') {
-					// deelete all uploaded files/thumbs & clean session
+					// delete all uploaded files/thumbs & clean session
 					if (is_array($_SESSION['AjaxImageUpload'][$formUid])) {
 						foreach ($_SESSION['AjaxImageUpload'][$formUid] as $key => $fileInfo) {
 							if (file_exists($fileInfo['path'] . $fileInfo['uniqueName'])) {

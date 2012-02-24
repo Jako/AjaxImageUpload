@@ -88,21 +88,19 @@
 				var imageClasses = imageWrap.attr("class").split(/\s+/);
 				for( i = 0; i < imageClasses.length; i++) {
 					var fileid = imageClasses[i].split("image")[1];
-					if($.isNumeric(fileid)) {
-						$.get(settings.uploadAction, {
-							'delete' : fileid,
-							'uid' : settings.uid
-						}, function(deleteAnswer) {
-							if(deleteAnswer.success) {
-								imageWrap.fadeOut(function() {
-									$(this).remove();
-								});
-								if(settings.debug) {
-									alert(JSON.stringify(deleteAnswer) + '\nImage ' + fileid + ' deleted.');
-								}
+					$.get(settings.uploadAction, {
+						'delete' : parseInt(fileid),
+						'uid' : settings.uid
+					}, function(deleteAnswer) {
+						if(deleteAnswer.success) {
+							imageWrap.fadeOut(function() {
+								$(this).remove();
+							});
+							if(settings.debug) {
+								alert(JSON.stringify(deleteAnswer) + '\nImage ' + fileid + ' deleted.');
 							}
-						}, 'json');
-					}
+						}
+					}, 'json');
 				}
 			});
 			element.find('.qq-upload-button').after(clearButton);
