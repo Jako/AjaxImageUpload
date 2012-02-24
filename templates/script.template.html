@@ -1,7 +1,7 @@
 <script type="text/javascript">
 	/* <![CDATA[ */
 	$(document).ready(function() {
-		$('.file-uploader').ajaxFileUpload({
+		$('.file-uploader[+uid+]').ajaxFileUpload({
 			uploadAction : '[+ajaxId+]',
 			uid: '[+uid+]',
 			uploadTemplate : '<div class="qq-uploader"><div class="qq-upload-drop-area"><span>[+dropArea+]</span></div><div class="qq-upload-button">[+uploadButton+]</div><ul class="qq-upload-list"></ul></div>',
