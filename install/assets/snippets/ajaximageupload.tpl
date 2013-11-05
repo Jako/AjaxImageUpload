@@ -1,11 +1,11 @@
 <?php
 /**
- * AddHeaderfiles
+ * AjaxImageUpload
  *
- * Adds CSS or JS in a document (at the end of the head or the end of the body)
+ * MODX Snippet/jQuery Script Wrapper for Andrew Valums great file upload script
  *
  * @category 	snippet
- * @version 	0.4.5
+ * @version 	1.1
  * @license 	http://www.gnu.org/copyleft/gpl.html GNU Public License (GPL)
  * @author      Jako
  * @internal    @properties
