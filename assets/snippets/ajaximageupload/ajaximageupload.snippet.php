@@ -1,14 +1,23 @@
 <?php
-define('AIU_BASE_PATH', MODX_BASE_PATH . 'assets/snippets/AjaxImageUpload/');
-define('AIU_CACHE_PATH', MODX_BASE_PATH . 'assets/cache/AjaxImageUpload/');
+/*
+ * AjaxImageUpload
+ *
+ * MODX Snippet/jQuery Script Wrapper for Andrew Valums great file upload script
+ *
+ * License GPL
+ * Version 1.1 (05. November 2013)
+ * Author: Jako
+ */
+
+define('AIU_PATH', 'assets/snippets/ajaximageupload/');
+define('AIU_BASE_PATH', MODX_BASE_PATH . AIU_PATH);
+define('AIU_CACHE_PATH', 'assets/cache/ajaximageupload/');
+define('AIU_BASE_CACHE_PATH', MODX_BASE_PATH . AIU_CACHE_PATH);
 
 include AIU_BASE_PATH . 'includes/fileuploader/fileuploader.class.php';
 include AIU_BASE_PATH . 'includes/PhpThumbFactory/ThumbLib.inc.php';
 
-/* * ************************ */
-/* Set/Read Snippet Params */
-/* * ************************ */
-
+// Set/Read Snippet Params
 // default: &language=`english` &allowedExtensions=`jpg,jpeg,png,gif` &maxFilesizeMb=`8` &uid=`site-specific` &maxFiles=`3` &thumbX=`100` &thumbY=`100` &mode=`form` &ajaxId=`0`
 
 $language = isset($language) ? $language : 'english';
@@ -42,8 +51,8 @@ function includeFileName($name, $type = 'config', $defaultName = 'default', $fil
 	}
 }
 
-if (!file_exists(MODX_BASE_PATH . 'assets/cache/AjaxImageUpload')) {
-	mkdir(MODX_BASE_PATH . 'assets/cache/AjaxImageUpload', 0755);
+if (!file_exists(AIU_BASE_CACHE_PATH)) {
+	mkdir(AIU_BASE_CACHE_PATH, 0755);
 }
 
 include (includeFileName($language, 'language', 'english'));
@@ -84,7 +93,7 @@ switch ($mode) {
 						unset($_SESSION['AjaxImageUpload'][$formUid][$fileId]);
 						$result['success'] = TRUE;
 					} else {
-						$result['error'] = sprintf($language['notFound'], $maxFiles);
+						$result['error'] = $language['notFound'];
 					}
 				}
 			} else {
@@ -92,7 +101,7 @@ switch ($mode) {
 				$uploader = new qqFileUploader($allowedExtensions, $sizeLimit);
 				$formUid = (isset($_GET['uid'])) ? htmlentities(trim($_GET['uid']), ENT_NOQUOTES) : $formUid;
 				// to pass data through iframe you will need to encode all html tags
-				$result = $uploader->handleUpload(AIU_CACHE_PATH, TRUE, $language);
+				$result = $uploader->handleUpload(AIU_BASE_CACHE_PATH, TRUE, $language);
 				// file successful uploaded
 				if ($result['success']) {
 					$originalName = $uploader->filename . '.' . $uploader->extension;
@@ -130,11 +139,11 @@ switch ($mode) {
 					$modx->regClientStartupScript('http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
 				}
 				if ($addCss) {
-					$modx->regClientCSS('assets/snippets/AjaxImageUpload/AjaxImageUpload.css');
+					$modx->regClientCSS(AIU_PATH . 'ajaximageupload.css');
 				}
 				if ($addJscript) {
-					$modx->regClientStartupScript('assets/snippets/AjaxImageUpload/includes/fileuploader/fileuploader.js');
-					$modx->regClientStartupScript('assets/snippets/AjaxImageUpload/AjaxImageUpload.js');
+					$modx->regClientStartupScript(AIU_PATH . 'includes/fileuploader/fileuploader.js');
+					$modx->regClientStartupScript(AIU_PATH . 'ajaximageupload.js');
 				}
 				$scriptSettings = file_get_contents(includeFileName('script' . ucfirst($language), 'template', 'script', '.html'));
 				$placeholder = array();

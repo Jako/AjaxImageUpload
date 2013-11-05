@@ -9,10 +9,10 @@ With this snippet an upload button for uploading multiple files with progress-ba
 
 Installation:
 --------------------------------------------------------------------------------
-1. Upload all files into the new folder *assets/snippets/AjaxImageUpload*
+1. Upload all files into the new folder *assets/snippets/ajaximageupload*
 2. Create a new snippet called AjaxImageUpload with the following snippet code
     `<?php
-    return include MODX_BASE_PATH.'assets/snippets/AjaxImageUpload/AjaxImageUpload.snippet.php';
+    return include MODX_BASE_PATH.'assets/snippets/ajaximageupload/ajaximageupload.snippet.php';
     ?>`
 
 Usage
@@ -48,7 +48,7 @@ addCss | add the snippet css in head | 1
 
 Notes:
 --------------------------------------------------------------------------------
-1. The uploaded images will be saved with an unique filename in `assets/cache/AjaxImageUpload`. This folder should be cleaned from time to time.
+1. The uploaded images will be saved with an unique filename in `assets/cache/ajaximageupload`. This folder should be cleaned from time to time.
 2. The properties of the uploaded images will be saved in `$_SESSION['AjaxImageUpload'][$uid][$id]` as `array('originalName', 'uniqueName', 'thumbName', 'path')` and should be moved from there during the other form process. The parameter `$uid` should be set on non ajax page with the parameter `formUid`, `$id` is the number of the image.
 3. The parameter `formUid` could be generated and set for each upload button (to separate multiple upload queues) and maybe each pageview (to separate uploads for the same queue and session but i.e. in different browser tabs).
 4. Different upload buttons could use different ajax 'documents' for allowing different file types, thumb sizes etc.
