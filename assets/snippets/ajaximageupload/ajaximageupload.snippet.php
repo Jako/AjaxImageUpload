@@ -9,7 +9,7 @@
  * Author: Jako
  */
 
-define('AIU_PATH', 'assets/snippets/ajaximageupload/');
+define('AIU_PATH', str_replace(MODX_BASE_PATH, '', str_replace('\\', '/', realpath(dirname(__FILE__)))) . '/');
 define('AIU_BASE_PATH', MODX_BASE_PATH . AIU_PATH);
 define('AIU_CACHE_PATH', 'assets/cache/ajaximageupload/');
 define('AIU_BASE_CACHE_PATH', MODX_BASE_PATH . AIU_CACHE_PATH);
