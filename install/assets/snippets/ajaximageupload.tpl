@@ -12,4 +12,4 @@
  * @internal    @modx_category Content
  * @internal    @installset base, sample
  */
-return require(MODX_BASE_PATH . 'assets/snippets/addheaderfiles/addheaderfiles.snippet.php');
+return include MODX_BASE_PATH.'assets/snippets/ajaximageupload/ajaximageupload.snippet.php';
