@@ -20,7 +20,7 @@ include AIU_BASE_PATH . 'includes/PhpThumbFactory/ThumbLib.inc.php';
 // Set/Read Snippet Params
 // default: &language=`english` &allowedExtensions=`jpg,jpeg,png,gif` &maxFilesizeMb=`8` &uid=`site-specific` &maxFiles=`3` &thumbX=`100` &thumbY=`100` &mode=`form` &ajaxId=`0`
 
-$language = isset($language) ? $language : 'english';
+$lang = isset($language) ? $language : 'english';
 // comma separated list of valid extensions
 $allowedExtensions = isset($allowedExtensions) ? $allowedExtensions : 'jpg,jpeg,png,gif';
 $maxFilesizeMb = isset($maxFilesizeMb) ? intval($maxFilesizeMb) : 8;
@@ -55,7 +55,7 @@ if (!file_exists(AIU_BASE_CACHE_PATH)) {
 	mkdir(AIU_BASE_CACHE_PATH, 0755);
 }
 
-include (includeFileName($language, 'language', 'english'));
+include (includeFileName($lang, 'language', 'english'));
 $allowedExtensions = explode(',', $allowedExtensions);
 $sizeLimit = intval($maxFilesizeMb) * 1024 * 1024;
 switch ($mode) {
@@ -145,7 +145,7 @@ switch ($mode) {
 					$modx->regClientStartupScript(AIU_PATH . 'includes/fileuploader/fileuploader.js');
 					$modx->regClientStartupScript(AIU_PATH . 'ajaximageupload.js');
 				}
-				$scriptSettings = file_get_contents(includeFileName('script' . ucfirst($language), 'template', 'script', '.html'));
+				$scriptSettings = file_get_contents(includeFileName('script' . ucfirst($lang), 'template', 'script', '.html'));
 				$placeholder = array();
 				$placeholder['ajaxId'] = $modx->makeUrl($ajaxId);
 				$placeholder['dropArea'] = $language['dropArea'];
