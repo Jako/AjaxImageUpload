@@ -167,8 +167,8 @@ switch ($mode) {
 					$scriptSettings = str_replace('[+' . $key . '+]', $value, $scriptSettings);
 				}
 				$modx->regClientStartupScript($scriptSettings);
-				$output = file_get_contents(includeFileName('uploadSection' . ucfirst($language), 'template', 'uploadSection', '.html'));
-				$imageTpl = file_get_contents(includeFileName('image' . ucfirst($language), 'template', 'image', '.html'));
+				$output = file_get_contents(includeFileName('uploadSection' . ucfirst($lang), 'template', 'uploadSection', '.html'));
+				$imageTpl = file_get_contents(includeFileName('image' . ucfirst($lang), 'template', 'image', '.html'));
 				$imageList = array();
 				$placeholder = array();
 				$placeholder['thumbX'] = $thumbX;
