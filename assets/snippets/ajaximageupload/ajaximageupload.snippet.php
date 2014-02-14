@@ -32,7 +32,7 @@ $mode = isset($mode) ? $mode : 'form';
 $ajaxId = isset($ajaxId) ? intval($ajaxId) : 0;
 $addJquery = isset($addJquery) ? intval($addJquery) : 1;
 $addJscript = isset($addJscript) ? intval($addJquery) : 1;
-$addCss = isset($addCss) ? intval($addJquery) : 1;
+$addCss = isset($addCss) ? intval($addCss) : 1;
 
 function includeFileName($name, $type = 'config', $defaultName = 'default', $fileType = '.inc.php') {
 	$folder = (substr($type, -1) != 'y') ? $type . 's/' : substr($folder, 0, -1) . 'ies/';
