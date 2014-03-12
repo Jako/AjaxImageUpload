@@ -1,7 +1,7 @@
 AjaxImageUpload
 ================================================================================
 
-MODX Snippet/jQuery Script Wrapper for Andrew Valums great file upload script http://valums.com/ajax-upload/
+MODX Snippet/jQuery Script Wrapper for Andrew Valums great file upload script (previous on ~~http://valums.com/ajax-upload/~~)
 
 Features:
 --------------------------------------------------------------------------------
