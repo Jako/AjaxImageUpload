@@ -136,7 +136,7 @@ switch ($mode) {
 	case 'form' : {
 			if ($ajaxId) {
 				if ($addJquery) {
-					$modx->regClientStartupScript('http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
+					$modx->regClientStartupScript('//ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js');
 				}
 				if ($addCss) {
 					$modx->regClientCSS(AIU_PATH . 'ajaximageupload.css');
